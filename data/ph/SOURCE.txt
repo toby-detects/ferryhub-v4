@@ -1,0 +1,1 @@
+Address data adapted from https://github.com/wilfredpine/philippine-address-selector (MIT License, Copyright (c) 2020 Wilfred V. Pine). Bundled into one file per province.
