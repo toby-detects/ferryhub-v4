@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fares | FerryHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/passenger-records.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body data-page="fares" data-role="admin" data-root="../">
+<main id="page">
+  <div class="page-head"><h1>Fares</h1><p>One fare per passenger category, in Philippine pesos. These drive the revenue figures on the Dashboard.</p></div>
+  <section class="tbl-card fares-card" style="border-radius:28px;box-shadow:0 6px 22px rgba(20,54,95,.12);padding:1.4rem">
+    <form id="f" novalidate>
+      <div class="fare-grid" id="grid"></div>
+      <p class="hint">Each passenger’s fare is saved when they register, so changing a fare later does not change past bookings. Leave a box empty to remove that fare. Revenue counts a booking only after staff verify it at the ticketing station.</p>
+      <p class="notice bad" id="ferr" role="alert" hidden></p>
+      <div class="fare-actions"><button type="submit" class="btn btn-primary" id="save">Save fares</button></div>
+    </form>
+  </section>
+  <section class="tbl-card" style="border-radius:28px;box-shadow:0 6px 22px rgba(20,54,95,.12);padding:1.4rem;margin-top:1.2rem">
+    <h2 class="sect-title" style="margin-bottom:.4rem">EARLIER REGISTRATIONS WITHOUT A FARE</h2>
+    <p class="hint">Passengers who registered before fares were set have no fare recorded, so they count as zero revenue. Apply the current fares to them once, after you have saved the fares above.</p>
+    <div class="fare-actions"><button type="button" class="btn btn-line" id="backfill">Apply current fares to earlier registrations</button></div>
+  </section>
+</main>
+<script src="../js/common.js"></script><script src="../js/validation.js"></script><script src="../js/api.js"></script><script src="../js/auth.js"></script><script src="../js/navigation.js"></script><script src="../js/admin/fares.js"></script>
+</body></html>

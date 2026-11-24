@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Account Management | FerryHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/passenger-records.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body data-page="accounts" data-role="admin" data-root="../">
+<main id="page">
+  <div class="page-head"><h1>Account Management</h1><p>Create and manage Staff accounts. Admin access is separate.</p></div>
+  <div class="acts">
+    <button class="act" type="button" id="add"><img src="../assets/icons/add.png" alt="">Add new account</button>
+    <button class="act" type="button" id="del" disabled><img src="../assets/icons/trash.png" alt="">Delete</button>
+    <button class="act" type="button" id="upd" disabled><img src="../assets/icons/check.png" alt="">Update / Reset Password</button>
+  </div>
+  <section class="tbl-card" style="border-radius:28px;box-shadow:0 6px 22px rgba(20,54,95,.12)">
+    <h2 class="sect-title">STAFF ACCOUNTS</h2>
+    <div class="toolbar">
+      <div class="field grow"><label for="q">Search</label><input id="q" type="search" placeholder="ID or username"></div>
+      <div class="field"><label for="fs">Status</label><select id="fs"><option value="">All</option><option>Active</option><option>Disabled</option></select></div>
+      <div class="field"><label for="fp">Port</label><select id="fp"><option value="">All</option></select></div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="table-wrap"><table class="tbl"><thead><tr id="thead"></tr></thead><tbody id="rows"></tbody></table></div>
+    <div id="state" class="state" hidden></div>
+  </section>
+</main>
+
+<dialog class="dlg" id="dlg" aria-labelledby="dt"><form id="f" novalidate autocomplete="off">
+  <div class="dlg-head"><h2 id="dt">Add new account</h2><button type="button" class="iconbtn" id="x" aria-label="Close">&#10005;</button></div>
+  <div class="dlg-body">
+    <div class="field wide"><label for="un">Username <i>*</i></label><input id="un" name="username" autocomplete="off"><p class="err" hidden></p></div>
+    <div class="field"><label for="pw" id="pwl">Password <i>*</i></label><input id="pw" name="password" type="password" autocomplete="new-password"><p class="err" hidden></p></div>
+    <div class="field"><label for="pc">Confirm password</label><input id="pc" name="confirm" type="password" autocomplete="new-password"><p class="err" hidden></p></div>
+    <div class="field"><label for="po">Port <i>*</i></label><select id="po" name="port"></select><p class="err" hidden></p></div>
+    <div class="field"><label for="ss">Status</label><select id="ss" name="status"><option>Active</option><option>Disabled</option></select></div>
+    <p class="hint wide" id="pwhint">Use at least 8 characters. Share the password with the staff member privately.</p>
+  </div>
+  <div class="dlg-actions"><button type="button" class="btn btn-line" id="cancel">Cancel</button><button type="submit" class="btn btn-primary" id="save">Create account</button></div>
+</form></dialog>
+<script src="../js/common.js"></script><script src="../js/validation.js"></script><script src="../js/api.js"></script><script src="../js/auth.js"></script><script src="../js/navigation.js"></script><script src="../js/admin/accounts.js"></script>
+</body></html>

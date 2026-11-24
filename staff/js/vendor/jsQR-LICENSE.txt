@@ -1,0 +1,1 @@
+jsQR (c) Cosmo Wolfe, Apache License 2.0, https://github.com/cozmo/jsQR

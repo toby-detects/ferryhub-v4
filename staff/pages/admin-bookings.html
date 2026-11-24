@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Booking Records | FerryHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/passenger-records.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body data-page="bookings" data-role="admin" data-root="../">
+<main id="page">
+  <div class="page-head"><h1>Booking Records</h1><p>Search, filter and review booking transactions. Read-only.</p></div>
+  <div class="a-bar">
+    <div class="field" style="flex:1;min-width:240px;max-width:420px"><label for="q">Search booking</label><input id="q" type="search" placeholder="Registration no. or port"></div>
+    <div class="pills" role="group" aria-label="Filter by status" id="pills">
+      <button class="pill" type="button" data-s="" aria-pressed="true">All</button>
+      <button class="pill" type="button" data-s="Confirmed" aria-pressed="false">Confirmed</button>
+      <button class="pill" type="button" data-s="Verified" aria-pressed="false">Verified</button>
+      <button class="pill" type="button" data-s="Cancelled" aria-pressed="false">Cancelled</button>
+    </div>
+  </div>
+  <div class="a-bar">
+    <div class="field"><label for="fp">Port</label><select id="fp"><option value="">All ports</option></select></div>
+    <div class="field"><label for="ff">Schedule from</label><input type="date" id="ff"></div>
+    <div class="field"><label for="ft">Schedule to</label><input type="date" id="ft"></div>
+    <button class="btn btn-line" type="button" id="reset">Reset</button>
+  </div>
+  <p id="skipNote" class="dash-note" hidden></p>
+  <section class="tbl-card">
+    <div class="table-wrap"><table class="tbl"><thead><tr id="thead"></tr></thead><tbody id="rows"></tbody></table></div>
+    <div id="state" class="state" hidden></div>
+    <div class="pager" id="pager" hidden>
+      <span id="count" aria-live="polite"></span>
+      <span class="btns"><label for="size" class="sr">Rows per page</label><select id="size"><option>10</option><option>25</option><option>50</option></select>
+        <button class="btn btn-line" id="prev" type="button">Previous</button><span id="pg"></span><button class="btn btn-line" id="next" type="button">Next</button></span>
+    </div>
+  </section>
+</main>
+<dialog class="dlg" id="dlg" aria-labelledby="dt">
+  <div class="dlg-head"><h2 id="dt">Booking details</h2><button type="button" class="iconbtn" id="x" aria-label="Close">&#10005;</button></div>
+  <div id="dbody" style="overflow:auto;max-height:70vh"></div>
+  <div class="dlg-actions"><button type="button" class="btn btn-line" id="close">Close</button></div>
+</dialog>
+<script src="../js/common.js"></script><script src="../js/validation.js"></script><script src="../js/api.js"></script><script src="../js/auth.js"></script><script src="../js/navigation.js"></script>
+<script src="../js/admin/data-api.js"></script><script src="../js/admin/analytics.js"></script><script src="../js/admin/bookings.js"></script>
+</body></html>

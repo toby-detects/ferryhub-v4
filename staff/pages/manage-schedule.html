@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manage Schedule | FerryHub Staff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/manage-schedule.css"></head>
+<body data-page="schedule" data-root="../">
+<main id="page">
+  <div class="page-head"><h1>Ferry Departure Schedule</h1><p id="scope">Select a date, then select a time slot to view or update it.</p></div>
+  <div class="schedtools"><button class="btn btn-line" id="tplBtn" type="button">Default departure times</button><button class="btn btn-line" id="addSlot" type="button">+ Add a time for this date</button></div>
+  <div class="sched">
+    <section class="card panel" aria-label="Calendar">
+      <div class="cal-head"><button class="iconbtn" id="prev" aria-label="Previous month">&#8249;</button><h2 id="mt" aria-live="polite"></h2><button class="iconbtn" id="next" aria-label="Next month">&#8250;</button></div>
+      <div class="cal" id="cal"></div>
+      <div class="legend"><span><i style="background:var(--action)"></i>Seats available</span><span><i style="background:var(--red)"></i>All slots full</span><span><i style="background:var(--gray)"></i>All cancelled</span><button class="btn btn-line" id="today" type="button" style="margin-left:auto;padding:.25rem .8rem">Today</button></div>
+    </section>
+    <section class="card panel" aria-label="Time slots">
+      <div class="ph"><h2>Available Hours for:</h2><span id="sd"></span></div>
+      <p class="none-msg" id="dayMsg" hidden></p>
+      <div class="cols"><div><h3>Available Slots</h3><div class="slots" id="s-available"></div></div><div><h3>Booked Slots</h3><div class="slots" id="s-full"></div></div></div>
+      <h3 style="margin-top:1.2rem">Cancelled</h3><div class="slots" id="s-cancelled"></div>
+    </section>
+  </div>
+  <div class="cancelrow"><button class="btn btn-cancel" id="cb" aria-disabled="true">Cancel Booking</button></div>
+</main>
+<dialog class="dlg" id="dlg" aria-labelledby="dt"><form id="f" novalidate>
+  <div class="dlg-head"><h2 id="dt">Time slot</h2><button type="button" class="iconbtn" id="x" aria-label="Close">&#10005;</button></div>
+  <div class="dlg-body">
+    <dl class="sum"><dt>Port</dt><dd id="m-port"></dd><dt>Date</dt><dd id="m-date"></dd><dt>Departure</dt><dd id="m-time"></dd><dt>Remaining seats</dt><dd id="m-rem"></dd><dt>Registered, not yet validated</dt><dd id="m-reg"></dd></dl>
+    <div class="field wide" id="timeField" hidden><label for="mt2">Departure time <i>*</i></label><input id="mt2" name="time" type="time" step="300"><p class="err" hidden></p></div>
+    <div class="field"><label for="ms">Status <i>*</i></label><select id="ms" name="status"><option value="available">Available</option><option value="full">Full</option><option value="cancelled">Cancelled</option></select><p class="err" hidden></p></div>
+    <div class="field"><label for="mc">Capacity <i>*</i></label><input id="mc" name="capacity" inputmode="numeric"><p class="err" hidden></p></div>
+    <div class="field"><label for="mn">Passengers booked (validated) <i>*</i></label><input id="mn" name="booked" inputmode="numeric"><p class="err" hidden></p></div>
+    <p class="hint wide">Booked passengers go up automatically when you validate a ticket. Full slots accept no new registrations. Cancelled slots are shown in gray.</p>
+    <p class="notice bad wide" id="ferr" role="alert" hidden></p>
+  </div>
+  <div class="dlg-actions"><button type="button" class="btn btn-line" id="cancel">Cancel</button><button type="submit" class="btn btn-primary" id="save">Save slot</button></div>
+</form></dialog>
+<dialog class="dlg" id="tdlg" aria-labelledby="tt">
+  <div class="dlg-head"><h2 id="tt">Default departure times</h2><button type="button" class="iconbtn" id="tx" aria-label="Close">&#10005;</button></div>
+  <div class="tpl-body"><p class="hint">These times are offered to passengers for every date. A time with upcoming registered passengers cannot be moved or switched off. You can still cancel it on a specific date.</p>
+    <div class="table-wrap"><table class="tbl small"><thead><tr><th>Time</th><th>Capacity</th><th>Status</th><th>Upcoming registered</th><th><span class="sr">Edit</span></th></tr></thead><tbody id="trows"></tbody></table></div>
+    <form id="tf" novalidate class="tpl-form"><h3 id="tft">Add a default time</h3>
+      <div class="field"><label for="tt1">Time <i>*</i></label><input id="tt1" name="time" type="time" step="300"><p class="err" hidden></p></div>
+      <div class="field"><label for="tc">Capacity <i>*</i></label><input id="tc" name="capacity" inputmode="numeric" value="40"><p class="err" hidden></p></div>
+      <label class="chk"><input type="checkbox" name="active" checked> Offer this time to passengers</label>
+      <p class="notice bad" id="tferr" role="alert" hidden></p>
+      <div class="dlg-actions" style="padding:0;border:0"><button type="button" class="btn btn-line" id="tnew">New</button><button type="submit" class="btn btn-primary" id="tsave">Save time</button></div></form></div>
+</dialog>
+<script src="../js/common.js"></script><script src="../js/validation.js"></script><script src="../js/api.js"></script><script src="../js/auth.js"></script><script src="../js/navigation.js"></script><script src="../js/vendor/jsQR.js"></script><script src="../js/scanner.js"></script><script src="../js/manage-schedule.js"></script>
+</body></html>

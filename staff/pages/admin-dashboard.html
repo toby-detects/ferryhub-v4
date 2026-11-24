@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | FerryHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/passenger-records.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body data-page="dashboard" data-role="admin" data-root="../">
+<main id="page">
+  <div class="page-head"><h1>Dashboard</h1><p id="rangeText">Booking activity, passenger demand and revenue.</p></div>
+
+  <div class="a-bar" id="filters">
+    <div class="field"><label for="period">Period</label>
+      <select id="period"><option value="week">Weekly</option><option value="month" selected>Monthly</option><option value="year">Yearly</option><option value="custom">Custom range</option></select></div>
+    <div class="field" id="anchorWrap"><label for="anchor" id="anchorLabel">Month of</label><input type="date" id="anchor"></div>
+    <div class="field" id="fromWrap" hidden><label for="from">From</label><input type="date" id="from"></div>
+    <div class="field" id="toWrap" hidden><label for="to">To</label><input type="date" id="to"></div>
+    <button type="button" class="btn btn-line" id="refresh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.4L4 8.5M4 4v4.5h4.5M4 13a8 8 0 0 0 14.5 4.4L20 15.5M20 20v-4.5h-4.5"/></svg>Refresh data</button>
+  </div>
+  <p class="err" id="filterErr" hidden></p>
+
+  <div role="tablist" aria-label="Dashboard navigation" class="tabs" id="tabs">
+    <button class="tab" role="tab" id="t-overall" aria-selected="true" aria-controls="p-overall" data-tab="overall"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overall Performance</button>
+    <button class="tab" role="tab" id="t-trends" aria-selected="false" aria-controls="p-trends" data-tab="trends" tabindex="-1">Booking Trends</button>
+    <button class="tab" role="tab" id="t-predict" aria-selected="false" aria-controls="p-predict" data-tab="predict" tabindex="-1">Predictive Analytics</button>
+    <button class="tab" role="tab" id="t-revenue" aria-selected="false" aria-controls="p-revenue" data-tab="revenue" tabindex="-1">Revenue Analytics</button>
+  </div>
+
+  <div class="dash-wrap">
+    <div id="notice"></div>
+    <section class="panel" id="p-overall" role="tabpanel" aria-labelledby="t-overall"></section>
+    <section class="panel grid" id="p-trends" role="tabpanel" aria-labelledby="t-trends" hidden></section>
+    <section class="panel grid" id="p-predict" role="tabpanel" aria-labelledby="t-predict" hidden></section>
+    <section class="panel grid" id="p-revenue" role="tabpanel" aria-labelledby="t-revenue" hidden></section>
+  </div>
+</main>
+<script src="../js/common.js"></script><script src="../js/validation.js"></script><script src="../js/api.js"></script><script src="../js/auth.js"></script><script src="../js/navigation.js"></script>
+<script src="../js/admin/data-api.js"></script><script src="../js/admin/analytics.js"></script><script src="../js/admin/forecast.js"></script><script src="../js/admin/charts.js"></script><script src="../js/admin/dashboard.js"></script>
+</body></html>
