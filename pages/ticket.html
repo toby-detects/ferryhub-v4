@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
+<title>E-Ticket | FerryHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/pages.css"></head>
+<body data-title="tk.title" data-root="../">
+<div class="scene">
+  <main class="tk">
+    <header class="tk-head"><h1 data-i18n="tk.title"></h1><p data-i18n="tk.sub"></p></header>
+    <div class="tk-state" id="state" role="status" aria-live="polite"><p data-i18n="tk.loading"></p></div>
+    <article class="tk-card" id="ticket" hidden>
+      <div class="tk-top"><img src="../assets/images/logo-dark.png" alt="FerryHub">
+        <div class="tk-reg"><span data-i18n="tk.regNo"></span><b id="regNo"></b></div></div>
+      <div class="tk-qr"><canvas id="qr" width="380" height="380" role="img" aria-label="QR code"></canvas></div>
+      <p class="tk-valid" id="valid" hidden><span class="badge s-ok" data-i18n="tk.validated"></span></p>
+      <div class="tk-dl"><button type="button" class="btn btn-g btn-lg" id="dl"><span data-i18n="tk.download"></span>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M11 3h2v9.2l3.3-3.3 1.4 1.4L12 16l-5.7-5.7 1.4-1.4L11 12.2V3zM5 18h14v3H5z"/></svg></button></div>
+      <p class="tk-err" id="dlErr" hidden data-i18n="tk.qrError"></p>
+      <dl class="tk-info">
+        <div><dt data-i18n="tk.name"></dt><dd id="name"></dd></div>
+        <div><dt data-i18n="tk.dep"></dt><dd id="dep"></dd></div>
+        <div><dt data-i18n="tk.arr"></dt><dd id="arr"></dd></div>
+        <div><dt data-i18n="tk.sched"></dt><dd id="sched"></dd></div>
+        <div><dt data-i18n="tk.registered"></dt><dd id="regAt"></dd></div>
+      </dl>
+      <div class="tk-cut" aria-hidden="true"></div>
+      <h2 class="tk-sum">** <span data-i18n="tk.summary"></span> **</h2>
+      <p class="tk-count"><span data-i18n="tk.passengers"></span>: <b id="pc"></b></p>
+      <ol class="tk-list" id="plist"></ol>
+    </article>
+  </main>
+</div>
+<script src="../js/config.js"></script><script src="../js/translations.js"></script><script src="../js/main.js"></script><script src="../js/vendor/qrcode.js"></script><script src="../js/ticket.js"></script>
+</body></html>
