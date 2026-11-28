@@ -5,7 +5,7 @@
   const saved = FH.load() || {};
   const S = {
     from: PORTS.includes(saved.from) ? saved.from : '', date: saved.date || '', time: saved.time || '',
-    counts: Object.assign({ regular: 1, student: 0, senior: 0, pwd: 0, child: 0 }, saved.counts || {})
+    counts: Object.assign({ regular: 0, student: 0, senior: 0, pwd: 0, child: 0 }, saved.counts || {})
   };
   const total = () => FH.CATS.reduce((a, c) => a + S.counts[c], 0);
   const wrap = f => $(`[data-f="${f}"]`);
